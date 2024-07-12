@@ -9,7 +9,9 @@ const HomeSpotify = () => {
   return (
     <Container>
       <TopComponentsList result={result} />
-      <MusicSection titole="Rock Classics" />
+      <MusicSection titole="Rock Section" searchArtist="queen" />
+      <MusicSection titole="Pop Culture" searchArtist="katyperry" />
+      <MusicSection titole="Hip - Hop" searchArtist="eminem" />
     </Container>
   );
 };
