@@ -1,5 +1,7 @@
-import { Button, Col, Container, Image, Nav, NavbarBrand, Row } from "react-bootstrap";
-
+import { Button, Col, Container, Image, ListGroup, ListGroupItem, Nav, NavbarBrand, Row } from "react-bootstrap";
+import { BsHouseDoorFill } from "react-icons/bs";
+import { BsBook } from "react-icons/bs";
+import { Link } from "react-router-dom";
 const NavbarSpotify = () => {
   return (
     <Container>
@@ -9,6 +11,12 @@ const NavbarSpotify = () => {
             <NavbarBrand className="navbar-brand">
               <Image src="/src/assets/logo.png" alt="Spotify Logo" width="131" height="40" />
             </NavbarBrand>
+            <Link to={"/"} className="text-center">
+              <BsHouseDoorFill className="icon" />
+              <span className="icon ">Home</span>
+            </Link>
+            <BsBook />
+
             <Button
               className="navbar-toggler"
               type="button"
@@ -20,30 +28,7 @@ const NavbarSpotify = () => {
             >
               <span className="navbar-toggler-icon"></span>
             </Button>
-            <Col className="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div className="navbar-nav">
-                {/* <ul>
-                  <li>
-                    <NavLink to={"/"} className="nav-item nav-link d-flex align-items-center" href="#">
-                      <i className="bi bi-house-door-fill"></i>&nbsp; Home
-                    </a>
-                  </NavLink>
-                  <li>
-                    <a className="nav-item nav-link d-flex align-items-center" href="#">
-                      <i className="bi bi-book-fill"></i>&nbsp; Your Library
-                    </a>
-                  </li>
-                  <li>
-                    <div className="input-group mt-3">
-                      <input type="text" className="form-control" placeholder="Search" aria-label="Search" />
-                      <div className="input-group-append">
-                        <button className="btn btn-outline-secondary btn-sm h-100">GO</button>
-                      </div>
-                    </div>
-                  </li>
-                </ul> */}
-              </div>
-            </Col>
+            <Col className="collapse navbar-collapse" id="navbarNavAltMarkup"></Col>
           </Row>
           <div className="nav-btn">
             <button className="btn signup-btn" type="button">

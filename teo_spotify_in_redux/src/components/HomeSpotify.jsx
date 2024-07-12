@@ -7,8 +7,9 @@ const HomeSpotify = () => {
   const result = useSelector((state) => state.main.result);
   // const dispatch = useDispatch();
   return (
-    <Container>
+    <Container className="mainContainer">
       <TopComponentsList result={result} />
+      <MusicSection titole="Soft Music" searchArtist="sofia" />
       <MusicSection titole="Rock Section" searchArtist="queen" />
       <MusicSection titole="Pop Culture" searchArtist="katyperry" />
       <MusicSection titole="Hip - Hop" searchArtist="eminem" />

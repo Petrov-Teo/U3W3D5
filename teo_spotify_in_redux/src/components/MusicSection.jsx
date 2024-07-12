@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 
 const MusicSection = ({ titole, searchArtist }) => {
-  const [resultsApi, setResultsApi] = useState({});
+  const [resultsApi, setResultsApi] = useState([]);
 
   const fillMusicSection = async () => {
     try {
@@ -10,7 +10,7 @@ const MusicSection = ({ titole, searchArtist }) => {
       if (response.ok) {
         let { data } = await response.json();
         setResultsApi(data.slice(0, 4));
-        console.log(resultsApi);
+        console.log(data.slice(0, 4));
       } else {
         throw new Error("Error in fetching songs");
       }
@@ -24,17 +24,17 @@ const MusicSection = ({ titole, searchArtist }) => {
   }, []);
 
   return (
-    <Container>
-      <Row className="row">
+    <Container className="ms-5 ps-5">
+      <Row className="row ">
         <Col md="10">
           <h2 className="py-3 text-light">{titole}</h2>
         </Col>
-        <Col md="12">
+        <Col md="10">
           {resultsApi.length > 0 ? (
             <Row>
               {resultsApi.map((ArtistSong) => (
-                <Card key={ArtistSong.id} className="w-25 bg-transparent text-light border border-0">
-                  <Card.Img variant="top" src={ArtistSong.album.cover_medium} />
+                <Card key={ArtistSong.id} className="card-with bg-transparent text-light border border-0">
+                  <Card.Img className="bored-img" variant="top" src={ArtistSong.album.cover_medium} />
                   <Card.Body>
                     <Card.Title>Track:{ArtistSong.title}</Card.Title>
                     <Card.Text>Artist:{ArtistSong.artist.name}</Card.Text>

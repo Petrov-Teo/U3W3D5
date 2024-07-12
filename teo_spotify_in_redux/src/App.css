@@ -170,3 +170,23 @@ ul {
 .mainPage img {
   width: 200px;
 }
+
+.mainContainer {
+  margin-left: 100px;
+}
+.card-with {
+  width: 220px;
+}
+.bored-img {
+  border-radius: unset;
+}
+.icon {
+  width: 30px;
+  height: 30px;
+  color: #919191;
+  text-decoration: none;
+}
+
+.icon:hover {
+  color: white;
+}
