@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 
 const MusicSection = ({ titole, searchArtist }) => {
   const [resultsApi, setResultsApi] = useState([]);
+  const dispatch = useDispatch();
 
   const fillMusicSection = async () => {
     try {
@@ -21,7 +23,7 @@ const MusicSection = ({ titole, searchArtist }) => {
 
   useEffect(() => {
     fillMusicSection();
-  }, []);
+  }, [searchArtist]);
 
   return (
     <Container className="ms-5 ps-5">
@@ -33,7 +35,13 @@ const MusicSection = ({ titole, searchArtist }) => {
           {resultsApi.length > 0 ? (
             <Row>
               {resultsApi.map((ArtistSong) => (
-                <Card key={ArtistSong.id} className="card-with bg-transparent text-light border border-0">
+                <Card
+                  key={ArtistSong.id}
+                  className="card-with bg-transparent text-light border border-0"
+                  onClick={() => {
+                    dispatch({ type: "SELECTED", payload: ArtistSong });
+                  }}
+                >
                   <Card.Img className="bored-img" variant="top" src={ArtistSong.album.cover_medium} />
                   <Card.Body>
                     <Card.Title>Track:{ArtistSong.title}</Card.Title>
